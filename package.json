@@ -1,5 +1,22 @@
-{
-  "dependencies": {
+{ 
+"name": "jubilant-guacamole",
+"version": "1.0.0",
+"description": "mvc tech blog",
+"main": "server.js",
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node server.js",
+  "seed": "node seeds/index.js"
+},
+"repository": {
+  "type": "git",
+  "url": "git+https://github.com/swaguespack/jubilant-guacamole"
+},
+"keywords": [],
+"author": "shellby miller",
+"license": "ISC",
+
+"dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
     "console.table": "^0.10.0",

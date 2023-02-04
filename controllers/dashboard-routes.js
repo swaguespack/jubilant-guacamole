@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection'); //REMOVE???
+//const sequelize = require('../config/connection'); //REMOVE???
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
