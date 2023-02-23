@@ -1,5 +1,5 @@
 {
-  "name": "wheres-my-wings",
+  "name": "jubilant-guacamole",
   "version": "1.0.0",
   "engines":{
     "node": "v18.14.0",
@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swaguespack/wheres-my-wings.git"
+    "url": "git+https://github.com/swaguespack/jubilant-guacamole"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/swaguespack/wheres-my-wings/issues"
+    "url": "https://github.com/swaguespack/jubilant-guacamole/issues"
   },
-  "homepage": "https://github.com/swaguespack/wheres-my-wings#readme",
+  "homepage": "https://github.com/swaguespack/jubilant-guacamole#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "chalk": "^4.1.2",
@@ -33,9 +33,7 @@
     "express-handlebars": "^6.0.7",
     "express-session": "^1.17.3",
     "inquirer": "^8.2.4",
-    "leaflet": "^1.9.3",
     "mysql2": "^3.0.1",
-    "normalize.css": "^8.0.1",
     "sequelize": "^6.28.0"
   },
   "devDependencies": {
