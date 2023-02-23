@@ -1,10 +1,14 @@
-const router = require('express').Router();
-const apiRoutes = require('./api');
-const homeRoutes = require('./home-routes.js');
-const dashboardRoutes = require('./dashboard-routes.js');
+// Imports express' router object
+const router = require("express").Router();
 
-router.use('/api', apiRoutes);
-router.use('/',homeRoutes);
-router.use('/dashboard',dashboardRoutes);
+// Points to index.js within the api folder
+const apiRoutes = require("./api");
+
+// Import homeRoutes
+const homeRoutes = require("./homeRoutes");
+
+// Directs route variable based on what comes from front end javascript or user
+router.use("/", homeRoutes);
+router.use("/api", apiRoutes);
 
 module.exports = router;

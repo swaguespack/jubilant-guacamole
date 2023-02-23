@@ -1,3 +1,4 @@
+//format date helper for handlebars use
 module.exports = {
 
     format_date: date =>{
@@ -5,4 +6,3 @@ module.exports = {
 
     },
   };
-  

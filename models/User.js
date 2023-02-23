@@ -1,62 +1,76 @@
-//import important parts of sequelize library
+// Import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
 
-//import our database connection from config.js
+// Import database connection from config.js
 const sequelize = require('../config/connection');
 
-//import bcrypt
+// Import bcrypt
 const bcrypt = require('bcrypt');
 
-//initialize User model by extending off Sequelize's Model class
+// Initialize User model by extending off Sequelize's Model class
 class User extends Model {
-//function to check password
-    checkPassword(loginPW){
-        return bcrypt.compareSync(loginPW, this.password);
-    }
+  // Run on instance data to check password
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
 }
 
-//set up fields and rules for User model
 User.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8]
-            }
-        }
+  {
+    // Use Sequelize DataTypes object to provide data types/rules
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
-// Hook functions called before calls in sequelize executed
-   hooks: {
-        beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique:true
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      // Validates email attribute rule, returns promise if successul validation
+      validate: {
+        isEmail: true,
       },
-        beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        return updatedUserData;
-        }
-
     },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      // Validates length attribute rule, returns promise if successul validation
+      validate: {
+        len: [8],
+      },
+    },
+  },
+  {
+    // Hook functions (aka callbacks or lifecycle events) 
+    // Called before calls in sequelize executed
+    hooks:{
+      async beforeCreate(newUserData){
+      newUserData.password = await bcrypt.hash(newUserData.password,10)
+      return newUserData
+        },
+      async beforeUpdate(updatedUserData) {
+      updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+      return updatedUserData;
+        }
+      },
+    // Import sequelize connection instance (direct connection to database)
     sequelize,
+    // Do not auto add timstamp attributes (created_at)
     timestamps: false,
+    // Disable modification of table names
     freezeTableName: true,
+    // Use underscores for casing
     underscored: true,
+    // Model name stays lowercase
     modelName: 'user',
   }
-    
 );
-
+// Tells Node.js which code to export
 module.exports = User;

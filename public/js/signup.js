@@ -1,28 +1,30 @@
 async function signupFormHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const username = document.querySelector('#username-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+// Select values at id's user-signup, email-signup, and password-signup
+  const name = document.querySelector('#name-signup').value.trim();
+  const email = document.querySelector('#email-signup').value.trim();
+  const password = document.querySelector('#password-signup').value.trim();
 
-    if (username && password) {
-        const response = await fetch('/api/users', {
-          method: 'POST',
-          body: JSON.stringify({
-            username,
-            password
-          }),
-          headers: { 'Content-Type': 'application/json' }
-        }); 
- 
+  if (name && email && password) {
+  // Send POST request for users to api endpoint
+    const response = await fetch('/api/users/', {
+      method: 'POST',
+      body: JSON.stringify({
+      name,
+      email,
+      password
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+
     if (response.ok) {
-        console.log('success');
-
-        document.location.replace('/dashboard');
-
-      } else {
-        alert(response.statusText);
-      }
+    // Redirect user to dashboard page
+      document.location.replace('/dashboard');
+    } else {
+    // Error if not successfull
+      alert(response.statusText);
     }
+  }
 }
-
-document.querySelector('#signup-form').addEventListener('submit', signupFormHandler); 
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

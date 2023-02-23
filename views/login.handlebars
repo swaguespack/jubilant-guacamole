@@ -1,16 +1,32 @@
-    <div class="card">
-      <h3 class="card-header">Login</h3>
-      <form id="login-form" class="card-body">
-        <label class="form-label" for="username-login">Username</label>
-        <input  id="username-login" type="text" autofocus="true" class="form-input" />
+<div class="container-fluid">
 
-        <label class="form-label" for="password-login">Password</label>
-        <input id="password-login" type="password" autofocus="true" class="form-input" />
+  <div class="row p-6">
 
-        <button type="submit" class="btn">Login</button>
-        <a href="/signup">Sign up</a>
-      </form>
+    <div class="col">
     </div>
 
+        <div class=" d-flex card border-dark">
 
-<script src="/js/login.js"></script>
+          <form class='login-form form-group card-body'>
+
+          
+            <div class='input-group input-group-lg mb-3'>
+              <input id='user-login' class='input' type='name' placeholder='Username'/>
+            </div>
+          
+            <div class='input-group input-group-lg mb-3'>
+              <input id='password-login' class='input' type='password' placeholder='Password'/>
+            </div>
+            <button id='loginbtn' class='button text-white'>Login</button>
+        </form>
+
+    </div>
+
+  <div class="col">
+  </div>
+
+  </div>
+
+</div>
+
+<script src='./js/login.js'></script>

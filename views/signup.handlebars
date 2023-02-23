@@ -1,16 +1,40 @@
-<div class="card">
-      <h3 class="card-header">Sign Up</h3>
-      <form id="signup-form" class="card-body">
-        <label for="username-signup" class="form-label">Username</label>
-        <input id="username-signup" type="text" class="form-input" />
+<div class="container-fluid">
+  
+    <div class="row p-6">
 
+      <div class="col">
+      </div>
 
-        <label class="form-label" for="password-signup">Password</label>
-        <input  id="password-signup" type="password" class="form-input" />
+      <div class="d-flex card border-dark">
 
-        <button type="submit" class="btn">Sign up</button>
-        <a class="login-link" href="/js/login.js">Login</a>
-      </form>
+          <form class="signup-form card-body">
+
+            <div class="input-group input-group-lg mb-3">
+              <input type="text" id="name-signup" class="input" placeholder="Username">
+            </div>
+            
+            <div class="input-group input-group-lg mb-3">
+              <input type="email" id="email-signup" class="input" placeholder="Email">
+            </div>
+
+            <div class="input-group input-group-lg">
+              <input type="password" id="password-signup" class="input" placeholder="Password">
+            </div>
+
+            <div>
+            <label for="formGroupExampleInput">minimum 9 characters</label
+            ></div>
+
+           <button class="button text-white" id="signupbtn">Sign Up!</button>
+          
+          </form>
+      </div>
+      
+      <div class="col">
+      </div>
+
+      </div>
+
     </div>
 
-<script src="/js/signup.js"></script>
+  <script src="./js/signup.js"></script>
