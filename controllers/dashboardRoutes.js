@@ -1,31 +1,13 @@
 const router = require("express").Router();
 const { User, Post } = require("../models");
-
-// Get signup
-router.get("/signup", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-
-  res.render("signup");
-});
-
-// Get login
-router.get("/login", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/");
-    return;
-  }
-
-  res.render("login", {
-    loggedIn: req.session.logged_in,
-  });
-});
+const withAuth = require("../utils/auth");
 
 // Get all posts
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   Post.findAll({
+    where: {
+        user_id: req.session.user_id
+    },
     attributes: [
       'id',
       'title',
@@ -38,7 +20,7 @@ router.get("/", (req, res) => {
     }]
   }).then(dbPostData =>{
     const posts = dbPostData.map(post => post.get({plain:true}));
-    res.render("homepage", { posts, loggedIn: req.session.logged_in});
+    res.render("dashboard", { posts, loggedIn: true});
 
   }).catch(err => {
     console.log(err);
@@ -47,8 +29,8 @@ router.get("/", (req, res) => {
 
 });
 
-// Get one post by id
-router.get('/post/:id', (req, res) => {
+// Get one post by id to edit
+router.get('/edit/:id', withAuth, (req, res) => {
   Post.findOne({
           where: {
               id: req.params.id
@@ -73,7 +55,7 @@ router.get('/post/:id', (req, res) => {
           }
           const post = dbPostData.get({ plain: true });
           console.log(post);
-          res.render('single-post', { post, loggedIn: req.session.loggedIn });
+          res.render('edit-post', { post, loggedIn: true });
 
 
       })
@@ -81,6 +63,11 @@ router.get('/post/:id', (req, res) => {
           console.log(err);
           res.status(500).json(err);
       });
+});
+
+// Get new post
+router.get('/new', (req, res) => {
+    res.render('new-post');
 });
 
 module.exports = router;

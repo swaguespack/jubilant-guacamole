@@ -7,8 +7,12 @@ const apiRoutes = require("./api");
 // Import homeRoutes
 const homeRoutes = require("./homeRoutes");
 
+// Import dashboard-routes
+const dashboardRoutes = require('./dashboardRoutes.js');
+
 // Directs route variable based on what comes from front end javascript or user
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
+router.use('/dashboard', dashboardRoutes);
 
 module.exports = router;

@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-    // Redirect user to map page
+    // Redirect user to dashboard page
       document.location.replace('/dashboard');
     } else {
     // Error if not successfull

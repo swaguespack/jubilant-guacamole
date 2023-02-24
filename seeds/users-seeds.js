@@ -8,8 +8,23 @@ const userData = [
 
     },
     {
-        name: 'Test',
-        email: 'test@tech.com',
+        name: 'Patrick',
+        email: 'patrick@tech.com',
+        password: 'Itsasecret'
+    },
+    {
+        name: 'Julie',
+        email: 'julie@tech.com',
+        password: 'Itsasecret'
+    },
+    {
+        name: 'Tink',
+        email: 'tink@tech.com',
+        password: 'Itsasecret'
+    },
+    {
+        name: 'Jordan',
+        email: 'jordan@tech.com',
         password: 'Itsasecret'
     },
 

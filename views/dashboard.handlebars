@@ -1,5 +1,22 @@
-<div class="container-fluid" id="dashboard">
-  <h2 class="display-4 text-center">Dashboard</h2>
-   
+<button type="submit" class="button is-medium mt-4 ml-4"><a class="link" href="/dashboard/new">+ New Post</a></button>
 
+<h2 class="has-text-centered mt-2">Your Posts</h2>
+
+<div class="container is-fullhd mt-4"> 
+  <div class ="notification is-warning">
+    {{#if posts.length}}
+
+    <ul>
+      <li>
+        {{#each posts as |post|}}
+          {{> dashboard-postinfo post}}
+       {{/each}}
+      </li>
+    </ul>
+
+    {{/if}}
+  </div>
 </div>
+
+
+<script src="/js/add-post.js"></script>

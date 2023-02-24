@@ -1,24 +1,21 @@
-  <div class="jumbotron text-center">
+  <div class="jumbotron has-text-centered">
     <h1>My Tech Blog</h1>
     <p>Technology.</p>
   </div>
-
-    <!-- Container (About Section) -->
-    <div id="about" class="container-fluid">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2>About My Tech Blog</h2><br>
-          <h4>Looking for a space to exchange Tech knowlege? You've come to the right place!</h4><br>
-        </div>
-        <div class="col-sm-4">
-        </div>
-      </div>
-    </div>
-
   
-    
-    <footer class="container-fluid text-center">
-      <a href="#myPage" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-      </a>
-    </footer>
+
+
+<div class="container is-fullhd"> 
+   <div class ="notification is-warning">
+
+<ul>
+  <li>
+    {{#each posts as |post|}}
+    <article class="media-content p-2">
+      {{> post-info post}}
+    </article>
+    {{/each}}
+  </li>
+</ul>
+</div>
+</div>
