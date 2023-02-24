@@ -65,7 +65,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-// Delet comment
+// Delete comment
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {

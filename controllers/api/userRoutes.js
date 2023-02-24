@@ -6,7 +6,7 @@ const { User, Post, Comment } = require("../../models");
 // Find all users data besides password for /api/users
 router.get('/', (req, res) => {
   User.findAll({
-          attributes: { exclude: ['[password'] }
+          attributes: { exclude: ['password'] }
       })
       .then(userData => res.json(userData))
       .catch(err => {
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 // Find  user data by user id (besides password) for /api/users
 router.get('/:id', (req, res) => {
   User.findOne({
-          attributes: { exclude: ['[password'] },
+          attributes: { exclude: ['password'] },
           where:{
             id: req.params.id
           },
@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
           req.session.save(() => {
               req.session.user_id = userData.id;
               req.session.name = userData.name;
-              req.session.logged_in = true;
+              req.session.loggedIn = true;
 
               res.json(userData);
           });
@@ -105,7 +105,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.name = userData.name;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
@@ -118,7 +118,7 @@ router.post('/login', async (req, res) => {
 
 // When user clicks logout, frontend script triggers to destroy sessions
 router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
       req.session.destroy(() => {
           // 204 - No Content success status
           res.status(204).end();

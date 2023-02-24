@@ -13,13 +13,13 @@ router.get("/signup", (req, res) => {
 
 // Get login
 router.get("/login", (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect("/");
     return;
   }
 
   res.render("login", {
-    loggedIn: req.session.logged_in,
+    loggedIn: req.session.loggedIn,
   });
 });
 
@@ -55,7 +55,7 @@ router.get("/", (req, res) => {
 ]
   }).then(dbPostData =>{
     const posts = dbPostData.map(post => post.get({plain:true}));
-    res.render("homepage", { posts, loggedIn: req.session.logged_in});
+    res.render("homepage", { posts, loggedIn: req.session.loggedIn});
 
   }).catch(err => {
     console.log(err);
