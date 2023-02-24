@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post } = require("../models");
+const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Get all posts
@@ -17,7 +17,21 @@ router.get("/", withAuth, (req, res) => {
     include: [{
       model: User,
       attributes:['name']
-    }]
+    }, 
+  {
+    model: Comment,
+    attributes: [
+      'id',
+      'comment_text',
+      'post_id',
+      'user_id',
+      'created_at'
+    ],
+    include: {
+      model: User,
+      attributes: ['name']
+    }
+  }]
   }).then(dbPostData =>{
     const posts = dbPostData.map(post => post.get({plain:true}));
     res.render("dashboard", { posts, loggedIn: true});
@@ -45,6 +59,20 @@ router.get('/edit/:id', withAuth, (req, res) => {
               {
                   model: User,
                   attributes: ['name']
+              }, 
+              {
+                model: Comment,
+                attributes: [
+                  'id',
+                  'comment_text',
+                  'post_id',
+                  'user_id',
+                  'created_at'
+                ],
+                include: {
+                  model: User,
+                  attributes: ['name']
+                }
               }
           ]
       })

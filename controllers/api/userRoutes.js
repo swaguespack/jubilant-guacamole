@@ -1,7 +1,7 @@
 // Imports express' router object
 const router = require("express").Router();
-// Imports user model to use with our routes
-const { User } = require("../../models");
+// Imports user, post, and comment models to use with our routes
+const { User, Post, Comment } = require("../../models");
 
 // Find all users data besides password for /api/users
 router.get('/', (req, res) => {
@@ -21,9 +21,37 @@ router.get('/:id', (req, res) => {
           attributes: { exclude: ['[password'] },
           where:{
             id: req.params.id
+          },
+          include: [{
+            model: Post,
+            attributes: [
+              'id',
+              'title',
+              'content',
+              'created_at'
+            ]
+          },
+          {
+            model: Comment,
+            attributes: [
+              'id',
+              'comment_text',
+              'created_at'
+            ],
+            include: {
+              model: Post,
+              attributes: ['title']
+            }
           }
+        
+        ]
+      }).then(userData => {
+        if(!userData) {
+          res.status(404).json({message: 'No user found with that id'});
+          return;
+        }
+        res.json(userData)
       })
-      res.status(200).json(userData)
       .catch(err => {
           console.log(err);
           res.status(500).json(err);

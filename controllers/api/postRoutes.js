@@ -1,7 +1,7 @@
 // Imports express' router object
 const router = require("express").Router();
-// Imports user model to use with our routes
-const { User, Post } = require("../../models");
+// Imports user, post, and comment model to use with our routes
+const { User, Post, Comment } = require("../../models");
 
 const withAuth = require("../../utils/auth");
 
@@ -20,6 +20,21 @@ router.get('/', (req, res) => {
         include: [{
             model: User,
             attributes: ['name']
+        },
+        {
+            model: Comment,
+            attributes: [
+                'id',
+                'comment_text',
+                'post_id',
+                'user_id',
+                'created_at'
+            ],
+            include:{
+                model: User,
+                attributes: ['name']
+            }
+
         }]
       })
       .then(dbPostData => res.json(dbPostData.reverse()))
@@ -44,6 +59,21 @@ router.get('/:id', (req, res) => {
         include: [{
             model:User,
             attributes:['name']
+        },
+        {
+            model: Comment,
+            attributes: [
+                'id',
+                'comment_text',
+                'post_id',
+                'user_id',
+                'created_at'
+            ],
+            include: {
+                model: User,
+                attributes: ['name']
+            }
+
         }]
       }).then(dbPostData => {
         if (!dbPostData) {
