@@ -57,25 +57,6 @@ button {
   font-weight: bold;
 }
 
-.comment-container{
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px #d3d3d3 solid;
-  border-radius: 10px;
-}
-
-.comment-button{
-  margin-top: 20px;
-}
-
-.comment-text{
-  padding: 10px;
-}
-
-.comment-author{
-  padding: 10px;
-  font-weight: bold;
-}
 
 .edit-post-form{
   margin-top: 20px;

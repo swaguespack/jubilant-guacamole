@@ -1,16 +1,18 @@
-<div class="container row">
-<div class="comments">
+<div class="container is-fullhd mt-4">
+    <div class ="notification is-warning">
   {{#each this}}
-    <div class="card post comment-box">
-    <div class="card-body post-body">
-        <div class="card-text comment-text">
+
+
+    <div class="card mt-3">
+        <div class="card-content">
             {{comment_text}}
         </div>
-        <div class="comment-author">
-            -{{user.name}}, {{format_date created_at}}
+        <div class="card-footer is-justify-content-end">
+            - {{user.name}}, {{format_date created_at}}
         </div>
-    </div>
-    </div>
+      </div>
+   
   {{/each}}
+   </div>
 </div>
-</div>
+
