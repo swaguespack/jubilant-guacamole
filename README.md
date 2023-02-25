@@ -38,7 +38,7 @@ Once the dependencies are installed and the .env file is set up, follow this com
 
 The following image captures the CMS-style Tech Blog Application:
 
-![cms tech blog application.](/images/mvc-demo.png)
+![cms tech blog application.](/public/images/mvc-demo.png)
 
 Use the following link to find the deployed application on Heroku:
 
