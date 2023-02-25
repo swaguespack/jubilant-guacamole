@@ -14,8 +14,8 @@ jubilant-guacamole is a CMS-style blog site that follows the Model-View-Controll
 
 To create your own CMS-style blog site, `git clone` the repo so you have the project on your local development environemnt.
 
-Install the following dependencies using `npm install`: 
-`bcrypt` 
+Install the following dependencies using `npm install`:  
+`bcrypt`  
 `MySQL2`  
 `sequelize`  
 `express-handlebars`  
