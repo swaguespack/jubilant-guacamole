@@ -1,9 +1,15 @@
 <section class="container is-widescreen mt-4">
 {{> post-info post}}
-</section>
+
+
 {{#if loggedIn}}
 
+    <button class="button mt-3 "><a class="link has-text-white" href="/dashboard/edit/{{post.id}}">Edit Post</a></button>
+    <button class='delete-post-btn button mt-3 has-text-white'>Delete post</button>
 
+ 
+
+</section>
 <div class="container">
     
     <form class="card-content comment-form" id="comment-form">
@@ -24,4 +30,7 @@
 
 {{#if loggedIn}}
 <script src="/js/comment.js"></script>
+<script src="/js/edit-post.js"></script>
+<script src="/js/delete-post.js"></script>
+
 {{/if}}
