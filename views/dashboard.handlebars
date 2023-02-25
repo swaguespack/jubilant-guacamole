@@ -1,4 +1,4 @@
-<button type="submit" class="button is-medium mt-4 ml-4"><a class="link" href="/dashboard/new">+ New Post</a></button>
+<button type="submit" class="button is-medium mt-4 ml-4"><a class="link has-text-white" href="/dashboard/new">+ New Post</a></button>
 
 <h2 class="has-text-centered mt-2">Your Posts</h2>
 
@@ -10,6 +10,8 @@
       <li>
         {{#each posts as |post|}}
           {{> dashboard-postinfo post}}
+              <button class="button mt-3 "><a class="link has-text-white" href="/dashboard/edit/{{post.id}}">Edit Post</a></button>
+          
 
        {{/each}}
       </li>
@@ -21,5 +23,5 @@
 
 
 <script src="/js/edit-post.js"></script>
-<script src="/js/delete-post.js"></script>
+
 

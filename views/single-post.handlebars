@@ -4,13 +4,9 @@
 
 {{#if loggedIn}}
 
-    <button class="button mt-3 "><a class="link has-text-white" href="/dashboard/edit/{{post.id}}">Edit Post</a></button>
-    <button class='delete-post-btn button mt-3 has-text-white'>Delete post</button>
-
- 
-
 </section>
-<div class="container">
+<div class="container is-widescreen mt-3">
+    <div class="message is-warning">
     
     <form class="card-content comment-form" id="comment-form">
     <div class="form-row">
@@ -18,9 +14,10 @@
         <input id="comment" name="comment-body" class="form-input form-control" />
     </div>
     
-        <button type="submit" class="button is-link mt-3">Submit</button>
+        <button type="submit" class="button has-text-white mt-4">Submit</button>
     
     </form>
+    </div>
 </div>
 {{/if}}
 
@@ -30,7 +27,5 @@
 
 {{#if loggedIn}}
 <script src="/js/comment.js"></script>
-<script src="/js/edit-post.js"></script>
-<script src="/js/delete-post.js"></script>
 
 {{/if}}

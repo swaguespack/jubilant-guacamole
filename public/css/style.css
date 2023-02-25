@@ -12,7 +12,8 @@ body {
 /* ---------- JUMBOTRON ------------- */
 
 .jumbotron {
-  background-color: #E67300;
+
+  background-image: url("../images/jumbo_img.png");
   color: #fff;
   padding: 100px 25px;
   
@@ -43,7 +44,7 @@ body {
 
     /*-------- NAVIGATION BAR ------------- */
 nav {
-  background-color: #f2ae69!important;
+  background-color: #ffe789!important;
   font-size: 16px !important;
   letter-spacing: 2px;
   border-bottom: 1px solid rgb(255, 255, 255);
@@ -51,7 +52,7 @@ nav {
 
 
 button {
-  background-color: #cd8a06 !important;
+  background-color: #C0C0C0 !important;
   width: 10rem;
   margin: 3px;
   font-weight: bold;
