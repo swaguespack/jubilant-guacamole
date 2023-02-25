@@ -41,7 +41,7 @@ The following image captures the CMS-style Tech Blog Application:
 ![cms tech blog application.](/public/images/mvc-demo.png)
 
 Use the following link to find the deployed application on Heroku:
-
+https://tech-knowledge-y.herokuapp.com/ 
 
 
 
